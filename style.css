@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
 body { background-color: #f4f4f9; padding: 15px; }
 
@@ -12,6 +14,7 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   overflow-x: auto;
   padding-bottom: 10px;
   margin-bottom: 20px;
+  padding-top: 10px;
 }
 
 .filter-btn {
@@ -121,8 +124,11 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
 
 .promo-img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  height: 220px;
+  object-fit: contain !important;
+  object-position: center top !important;
+  background-color: #ffffff !important; 
+  padding: 10px 5px 0 5px;    
   display: block;
 }
 
@@ -174,4 +180,220 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
 
 .btn-wa-secondary:hover {
   background-color: #01579b;
+}
+
+.header-title {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 2.2rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  
+  display: inline-block;
+  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================
+   STYLE & ANIMASI BUTTON BRAND FILTER
+   ========================================== */
+
+/* Style Dasar Tombol Brand */
+.filter-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* Animasi Hover (Saat Kursor Diarahkan) */
+.filter-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* WARNA MASING-MASING BRAND (Berdasarkan onclick) */
+
+/* Tombol Semua */
+.filter-btn[onclick*="'all'"] {
+  background: linear-gradient(135deg, #475569, #1e293b) !important;
+}
+
+/* Promo */
+.filter-btn[onclick*="'promo'"] {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
+  box-shadow: 0 4px 12px rgba(255, 65, 108, 0.4);
+}
+
+/* Samsung */
+.filter-btn[onclick*="'samsung'"] {
+  background: linear-gradient(135deg, #1428a0, #0c1859) !important;
+  box-shadow: 0 4px 12px rgba(20, 40, 160, 0.3);
+}
+
+/* Realme */
+.filter-btn[onclick*="'realme'"] {
+  background: linear-gradient(135deg, #ffc800, #e0a800) !important;
+  color: #111111 !important; /* Teks hitam biar jelas */
+  box-shadow: 0 4px 12px rgba(255, 200, 0, 0.3);
+}
+
+/* Motorola */
+.filter-btn[onclick*="'motorola'"] {
+  background: linear-gradient(135deg, #00142e, #002e66) !important;
+  box-shadow: 0 4px 12px rgba(0, 46, 102, 0.3);
+}
+
+/* Nubia */
+.filter-btn[onclick*="'nubia'"] {
+  background: linear-gradient(135deg, #e60012, #99000c) !important;
+  box-shadow: 0 4px 12px rgba(230, 0, 18, 0.3);
+}
+
+/* Oppo */
+.filter-btn[onclick*="'oppo'"] {
+  background: linear-gradient(135deg, #048a81, #01544e) !important;
+  box-shadow: 0 4px 12px rgba(4, 138, 129, 0.3);
+}
+
+/* Infinix */
+.filter-btn[onclick*="'infinix'"] {
+  background: linear-gradient(135deg, #50c878, #2e7d32) !important;
+  box-shadow: 0 4px 12px rgba(80, 200, 120, 0.3);
+}
+
+/* Tecno */
+.filter-btn[onclick*="'tecno'"] {
+  background: linear-gradient(135deg, #0052cc, #002b80) !important;
+  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
+}
+
+/* Vivo */
+.filter-btn[onclick*="'vivo'"] {
+  background: linear-gradient(135deg, #415fff, #1a237e) !important;
+  box-shadow: 0 4px 12px rgba(65, 95, 255, 0.3);
+}
+
+/* Xiaomi */
+.filter-btn[onclick*="'xiaomi'"] {
+  background: linear-gradient(135deg, #ff6900, #d45100) !important;
+  box-shadow: 0 4px 12px rgba(255, 105, 0, 0.3);
+}
+
+/* Itel */
+.filter-btn[onclick*="'itel'"] {
+  background: linear-gradient(135deg, #ff0033, #a30021) !important;
+  box-shadow: 0 4px 12px rgba(255, 0, 51, 0.3);
+}
+
+/* Honor */
+.filter-btn[onclick*="'honor'"] {
+  background: linear-gradient(135deg, #00b4db, #0083b0) !important;
+  box-shadow: 0 4px 12px rgba(0, 180, 219, 0.3);
+}
+
+/* ==========================================
+   STYLE DARK / LIGHT MODE
+   ========================================== */
+
+/* Tombol Melayang di Pojok Kanan Atas */
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.1) rotate(15deg);
+}
+
+/* WARNA KETIKA DARK MODE AKTIF */
+body.dark-mode {
+  background-color: #0f172a !important; /* Latar belakang gelap */
+  color: #f8fafc !important;
+}
+
+/* Penyesuaian Elemen Lain saat Dark Mode */
+body.dark-mode .theme-toggle-btn {
+  background: #1e293b;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .header-subtitle, 
+body.dark-mode p {
+  color: #94a3b8 !important;
+}
+
+/* Mengubah latar kartu produk di mode gelap */
+body.dark-mode .product-card, 
+body.dark-mode .card,
+body.dark-mode div[class*="card"] {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================
+   PERBAIKAN TOTAL DARK MODE (KARTU & TABEL)
+   ========================================== */
+
+/* ==========================================
+   PERBAIKAN TOTAL DARK MODE (KARTU & TABEL)
+   ========================================== */
+
+/* 1. Latar Belakang Utama */
+body.dark-mode {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* 2. Kartu Produk & Container Tabel */
+body.dark-mode .product-card,
+body.dark-mode .card,
+body.dark-mode .pricelist-container,
+body.dark-mode .brand-section {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #ffffff !important;
+}
+
+/* 3. Latar Belakang Baris Tabel (Supaya Ikut Gelap) */
+body.dark-mode table,
+body.dark-mode tr,
+body.dark-mode td,
+body.dark-mode th,
+body.dark-mode tbody,
+body.dark-mode ul,
+body.dark-mode li {
+  background-color: #1e293b !important; /* Bikin background baris jadi gelap */
+  color: #f8fafc !important;            /* Teks tipe HP & harga jadi putih */
+  border-color: #334155 !important;      /* Garis pembatas tabel jadi gelap */
+}
+
+/* 4. Efek Selang-Seling Tabel (Zebra Striping Gelap) */
+body.dark-mode tr:nth-child(even),
+body.dark-mode li:nth-child(even) {
+  background-color: #0f172a !important; /* Warna gelap sedikit beda biar estetik */
 }
