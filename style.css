@@ -1,0 +1,177 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+body { background-color: #f4f4f9; padding: 15px; }
+
+header { text-align: center; margin-bottom: 20px; }
+header h1 { font-size: 1.5rem; color: #222; }
+header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
+
+/* Filter Container Scrollable */
+.filter-container {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background: #e0e0e0;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 0.85rem;
+}
+
+.filter-btn.active {
+  background: #222;
+  color: #fff;
+}
+
+/* Layout Grid */
+.catalog {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.brand-section {
+  background: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  overflow: hidden;
+  padding-bottom: 15px;
+}
+
+.brand-header { padding: 10px; text-align: center; color: white; }
+.brand-header h2 { font-size: 1.1rem; letter-spacing: 1px; }
+
+/* Warna Sesuai Brosur Gambar */
+.samsung-bg  { background-color: #000000; }
+.realme-bg   { background-color: #fbc02d; color: #000; }
+.motorola-bg { background-color: #0d47a1; }
+.nubia-bg    { background-color: #f57c00; }
+.oppo-bg     { background-color: #00c853; }
+.infinix-bg  { background-color: #76ff03; color: #000; }
+.tecno-bg    { background-color: #0288d1; }
+.vivo-bg     { background-color: #0091ea; }
+.xiaomi-bg   { background-color: #ff6d00; }
+.itel-bg     { background-color: #d50000; }
+.honor-bg    { background-color: #0000ff; }
+
+/* Tabel */
+.price-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.85rem; }
+.price-table th, .price-table td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #eee; }
+.price-table th { background: #f8f8f8; font-weight: bold; }
+.price-table td:nth-child(2) { font-weight: bold; text-align: right; color: #1b5e20; }
+
+/* Button WA */
+.btn-wa {
+  display: block;
+  width: 90%;
+  margin: 10px auto 0;
+  background-color: #25d366;
+  color: white;
+  text-align: center;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* --- CSS TAMBAHAN UNTUK PROMO --- */
+
+/* Efek Tombol Promo Berkedip/Berdenyut */
+.filter-btn.promo-btn {
+  background: #ff4757;
+  color: white;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Card Promo Bergambar */
+.promo-card {
+  position: relative;
+  border: 2px solid #ff4757;
+}
+
+.promo-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff4757;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.promo-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.promo-body {
+  padding: 12px;
+  text-align: center;
+}
+
+.promo-body .specs {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.price-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.new-price {
+  color: #e53935;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.discount-tag {
+  background-color: #ffebee;
+  color: #e53935;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid #ffcdd2;
+}
+
+/* Tombol Cadangan Warna Berbeda (Misal Biru / Abu-abu) */
+.btn-wa-secondary {
+  background-color: #0288d1; /* Warna Biru */
+  margin-top: 5px; /* Jarak dari tombol utama */
+}
+
+.btn-wa-secondary:hover {
+  background-color: #01579b;
+}
