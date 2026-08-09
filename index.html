@@ -8,8 +8,13 @@
 </head>
 <body>
 
+<!-- Tombol Dark Mode Pojok Kanan Atas -->
+<button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()">
+  <span id="theme-icon">🌙</span>
+</button>
+
   <header>
-    <h1>DAFTAR HARGA SMARTPHONE</h1>
+    <h1 class="header-title">FOCUS CELL PRICELIST</h1>
     <p>Pilih brand di bawah untuk memfilter produk</p>
   </header>
 
@@ -35,7 +40,7 @@
     <!-- ================= KATEGORI PROMO ================= -->
     <div class="brand-section promo-card" data-brand="promo">
       <div class="promo-badge">PROMO UTAMA</div>
-      <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=500" alt="Samsung S26 Ultra" class="promo-img">
+      <img src="Image/Samsung-s26-ultra.jpg" alt="Samsung S26 Ultra" class="promo-img">
       <div class="brand-header samsung-bg"><h2>SAMSUNG S26 ULTRA</h2></div>
       <div class="promo-body">
         <p class="specs">12GB RAM / 256GB ROM</p>
@@ -51,7 +56,7 @@
 
     <div class="brand-section promo-card" data-brand="promo">
       <div class="promo-badge">DISKON SPESIAL</div>
-      <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=500" alt="Realme 16 Pro+" class="promo-img">
+      <img src="Image/realme-16-pro+.jpg" alt="Realme 16 Pro+" class="promo-img">
       <div class="brand-header realme-bg"><h2>REALME 16 PRO+</h2></div>
       <div class="promo-body">
         <p class="specs">12GB RAM / 512GB ROM</p>
@@ -66,7 +71,7 @@
 
     <div class="brand-section promo-card" data-brand="promo">
       <div class="promo-badge">BEST DEAL</div>
-      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500" alt="Oppo Reno 16 5G" class="promo-img">
+      <img src="Image/oppo-reno-16-5G.jpg" alt="Oppo Reno 16 5G" class="promo-img">
       <div class="brand-header oppo-bg"><h2>OPPO RENO 16 5G</h2></div>
       <div class="promo-body">
         <p class="specs">12GB RAM / 256GB ROM</p>
@@ -341,24 +346,6 @@
     </div>
 
   </main>
-
-  <script>
-    function filterBrand(brand) {
-      const buttons = document.querySelectorAll('.filter-btn');
-      const sections = document.querySelectorAll('.brand-section');
-
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      sections.forEach(sec => {
-        if (brand === 'all' || sec.getAttribute('data-brand') === brand) {
-          sec.style.display = 'block';
-        } else {
-          sec.style.display = 'none';
-        }
-      });
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
