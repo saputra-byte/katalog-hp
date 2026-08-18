@@ -1,11 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
 
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-body { background-color: #f4f4f9; padding: 15px; }
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  font-family: Arial, sans-serif; 
+}
 
-header { text-align: center; margin-bottom: 20px; }
-header h1 { font-size: 1.5rem; color: #222; }
-header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
+body { 
+  background-color: #f4f4f9; 
+  padding: 15px; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header { 
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+header h1 { 
+  font-size: 1.5rem; 
+  color: #222; 
+}
+
+header p { 
+  font-size: 0.85rem; 
+  color: #666; 
+  margin-top: 5px; 
+}
 
 /* Filter Container Scrollable */
 .filter-container {
@@ -15,22 +37,7 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   padding-bottom: 10px;
   margin-bottom: 20px;
   padding-top: 10px;
-}
-
-.filter-btn {
-  background: #e0e0e0;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-weight: bold;
-  cursor: pointer;
-  white-space: nowrap;
-  font-size: 0.85rem;
-}
-
-.filter-btn.active {
-  background: #222;
-  color: #fff;
+  scrollbar-width: thin;
 }
 
 /* Layout Grid */
@@ -39,6 +46,7 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .brand-section {
@@ -49,10 +57,20 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   overflow: hidden;
   padding-bottom: 15px;
+  height: fit-content;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.brand-header { padding: 10px; text-align: center; color: white; }
-.brand-header h2 { font-size: 1.1rem; letter-spacing: 1px; }
+.brand-header { 
+  padding: 10px; 
+  text-align: center; 
+  color: white; 
+}
+
+.brand-header h2 { 
+  font-size: 1.1rem; 
+  letter-spacing: 1px; 
+}
 
 /* Warna Sesuai Brosur Gambar */
 .samsung-bg  { background-color: #000000; }
@@ -68,10 +86,50 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
 .honor-bg    { background-color: #0000ff; }
 
 /* Tabel */
-.price-table { width: 100%; border-collapse: collapse; margin: 10px 0; font-size: 0.85rem; }
-.price-table th, .price-table td { padding: 6px 12px; text-align: left; border-bottom: 1px solid #eee; }
-.price-table th { background: #f8f8f8; font-weight: bold; }
-.price-table td:nth-child(2) { font-weight: bold; text-align: right; color: #1b5e20; }
+.price-table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin: 10px 0; 
+  font-size: 0.85rem; 
+}
+
+.price-table th, .price-table td { 
+  padding: 6px 12px; 
+  text-align: left; 
+  border-bottom: 1px solid #eee; 
+}
+
+.price-table th { 
+  background: #f8f8f8; 
+  font-weight: bold; 
+  color: #333; 
+}
+
+.price-table td:nth-child(2) { 
+  font-weight: bold; 
+  text-align: right; 
+  color: #1b5e20; 
+}
+
+.price-table th:last-child,
+.price-table td:last-child {
+  text-align: right;
+}
+
+/* Tombol Aksi di Tabel (Salin & Wishlist Kecil) */
+.action-btn {
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 3px 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background: #e2e8f0;
+}
 
 /* Button WA */
 .btn-wa {
@@ -86,9 +144,12 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   border-radius: 5px;
   font-weight: bold;
   font-size: 0.85rem;
+  transition: background 0.2s;
 }
 
-/* --- CSS TAMBAHAN UNTUK PROMO --- */
+.btn-wa:hover {
+  background-color: #20ba5a;
+}
 
 /* Efek Tombol Promo Berkedip/Berdenyut */
 .filter-btn.promo-btn {
@@ -172,10 +233,9 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   border: 1px solid #ffcdd2;
 }
 
-/* Tombol Cadangan Warna Berbeda (Misal Biru / Abu-abu) */
 .btn-wa-secondary {
-  background-color: #0288d1; /* Warna Biru */
-  margin-top: 5px; /* Jarak dari tombol utama */
+  background-color: #0288d1;
+  margin-top: 5px;
 }
 
 .btn-wa-secondary:hover {
@@ -189,7 +249,6 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 8px;
-  
   display: inline-block;
   background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
   background-clip: text;
@@ -197,11 +256,7 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   -webkit-text-fill-color: transparent;
 }
 
-/* ==========================================
-   STYLE & ANIMASI BUTTON BRAND FILTER
-   ========================================== */
-
-/* Style Dasar Tombol Brand */
+/* Style Filter Brand */
 .filter-btn {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 700;
@@ -214,102 +269,58 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   outline: none;
+  white-space: nowrap;
 }
 
-/* Animasi Hover (Saat Kursor Diarahkan) */
 .filter-btn:hover {
   transform: translateY(-3px) scale(1.05);
 }
 
-/* WARNA MASING-MASING BRAND (Berdasarkan onclick) */
+.filter-btn[onclick*="'all'"] { background: linear-gradient(135deg, #475569, #1e293b) !important; }
+.filter-btn[onclick*="'promo'"] { background: linear-gradient(135deg, #ff416c, #ff4b2b) !important; box-shadow: 0 4px 12px rgba(255, 65, 108, 0.4); }
+.filter-btn[onclick*="'samsung'"] { background: linear-gradient(135deg, #1428a0, #0c1859) !important; box-shadow: 0 4px 12px rgba(20, 40, 160, 0.3); }
+.filter-btn[onclick*="'realme'"] { background: linear-gradient(135deg, #ffc800, #e0a800) !important; color: #111111 !important; box-shadow: 0 4px 12px rgba(255, 200, 0, 0.3); }
+.filter-btn[onclick*="'motorola'"] { background: linear-gradient(135deg, #00142e, #002e66) !important; box-shadow: 0 4px 12px rgba(0, 46, 102, 0.3); }
+.filter-btn[onclick*="'nubia'"] { background: linear-gradient(135deg, #e60012, #99000c) !important; box-shadow: 0 4px 12px rgba(230, 0, 18, 0.3); }
+.filter-btn[onclick*="'oppo'"] { background: linear-gradient(135deg, #048a81, #01544e) !important; box-shadow: 0 4px 12px rgba(4, 138, 129, 0.3); }
+.filter-btn[onclick*="'infinix'"] { background: linear-gradient(135deg, #50c878, #2e7d32) !important; box-shadow: 0 4px 12px rgba(80, 200, 120, 0.3); }
+.filter-btn[onclick*="'tecno'"] { background: linear-gradient(135deg, #0052cc, #002b80) !important; box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3); }
+.filter-btn[onclick*="'vivo'"] { background: linear-gradient(135deg, #415fff, #1a237e) !important; box-shadow: 0 4px 12px rgba(65, 95, 255, 0.3); }
+.filter-btn[onclick*="'xiaomi'"] { background: linear-gradient(135deg, #ff6900, #d45100) !important; box-shadow: 0 4px 12px rgba(255, 105, 0, 0.3); }
+.filter-btn[onclick*="'itel'"] { background: linear-gradient(135deg, #ff0033, #a30021) !important; box-shadow: 0 4px 12px rgba(255, 0, 51, 0.3); }
+.filter-btn[onclick*="'honor'"] { background: linear-gradient(135deg, #00b4db, #0083b0) !important; box-shadow: 0 4px 12px rgba(0, 180, 219, 0.3); }
 
-/* Tombol Semua */
-.filter-btn[onclick*="'all'"] {
-  background: linear-gradient(135deg, #475569, #1e293b) !important;
+/* Tombol Wishlist di Card Promo */
+.btn-wishlist {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 8px 15px;
+  background-color: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
-/* Promo */
-.filter-btn[onclick*="'promo'"] {
-  background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
-  box-shadow: 0 4px 12px rgba(255, 65, 108, 0.4);
-}
-
-/* Samsung */
-.filter-btn[onclick*="'samsung'"] {
-  background: linear-gradient(135deg, #1428a0, #0c1859) !important;
-  box-shadow: 0 4px 12px rgba(20, 40, 160, 0.3);
-}
-
-/* Realme */
-.filter-btn[onclick*="'realme'"] {
-  background: linear-gradient(135deg, #ffc800, #e0a800) !important;
-  color: #111111 !important; /* Teks hitam biar jelas */
-  box-shadow: 0 4px 12px rgba(255, 200, 0, 0.3);
-}
-
-/* Motorola */
-.filter-btn[onclick*="'motorola'"] {
-  background: linear-gradient(135deg, #00142e, #002e66) !important;
-  box-shadow: 0 4px 12px rgba(0, 46, 102, 0.3);
-}
-
-/* Nubia */
-.filter-btn[onclick*="'nubia'"] {
-  background: linear-gradient(135deg, #e60012, #99000c) !important;
-  box-shadow: 0 4px 12px rgba(230, 0, 18, 0.3);
-}
-
-/* Oppo */
-.filter-btn[onclick*="'oppo'"] {
-  background: linear-gradient(135deg, #048a81, #01544e) !important;
-  box-shadow: 0 4px 12px rgba(4, 138, 129, 0.3);
-}
-
-/* Infinix */
-.filter-btn[onclick*="'infinix'"] {
-  background: linear-gradient(135deg, #50c878, #2e7d32) !important;
-  box-shadow: 0 4px 12px rgba(80, 200, 120, 0.3);
-}
-
-/* Tecno */
-.filter-btn[onclick*="'tecno'"] {
-  background: linear-gradient(135deg, #0052cc, #002b80) !important;
-  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
-}
-
-/* Vivo */
-.filter-btn[onclick*="'vivo'"] {
-  background: linear-gradient(135deg, #415fff, #1a237e) !important;
-  box-shadow: 0 4px 12px rgba(65, 95, 255, 0.3);
-}
-
-/* Xiaomi */
-.filter-btn[onclick*="'xiaomi'"] {
-  background: linear-gradient(135deg, #ff6900, #d45100) !important;
-  box-shadow: 0 4px 12px rgba(255, 105, 0, 0.3);
-}
-
-/* Itel */
-.filter-btn[onclick*="'itel'"] {
-  background: linear-gradient(135deg, #ff0033, #a30021) !important;
-  box-shadow: 0 4px 12px rgba(255, 0, 51, 0.3);
-}
-
-/* Honor */
-.filter-btn[onclick*="'honor'"] {
-  background: linear-gradient(135deg, #00b4db, #0083b0) !important;
-  box-shadow: 0 4px 12px rgba(0, 180, 219, 0.3);
+.btn-wishlist:hover {
+  background-color: #e2e8f0;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 /* ==========================================
-   STYLE DARK / LIGHT MODE
+   POSISI TOMBOL DARK/LIGHT MODE DI KIRI ATAS
    ========================================== */
-
-/* Tombol Melayang di Pojok Kanan Atas */
 .theme-toggle-btn {
   position: fixed;
   top: 20px;
-  right: 20px;
+  left: 20px; /* Diubah dari right ke left */
+  right: auto; /* Memastikan posisi kanan dinonaktifkan */
   width: 45px;
   height: 45px;
   border-radius: 50%;
@@ -326,74 +337,222 @@ header p { font-size: 0.85rem; color: #666; margin-top: 5px; }
 }
 
 .theme-toggle-btn:hover {
-  transform: scale(1.1) rotate(15deg);
+  transform: scale(1.1) rotate(-15deg); /* Sedikit menyesuaikan arah putar hover ke kiri */
 }
 
-/* WARNA KETIKA DARK MODE AKTIF */
-body.dark-mode {
-  background-color: #0f172a !important; /* Latar belakang gelap */
-  color: #f8fafc !important;
+/* CSS UI Pencarian & Filter Harga Baru */
+.search-filter-container {
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 0 10px;
 }
 
-/* Penyesuaian Elemen Lain saat Dark Mode */
-body.dark-mode .theme-toggle-btn {
-  background: #1e293b;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+.search-box-wrapper {
+  flex: 1;
+  min-width: 260px;
 }
 
-body.dark-mode .header-subtitle, 
-body.dark-mode p {
-  color: #94a3b8 !important;
+.search-box-wrapper input, .select-wrapper select {
+  width: 100%;
+  padding: 10px 16px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  background: #fff;
+  color: #333;
+  font-size: 0.85rem;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* Mengubah latar kartu produk di mode gelap */
-body.dark-mode .product-card, 
-body.dark-mode .card,
-body.dark-mode div[class*="card"] {
-  background-color: #1e293b !important;
-  border-color: #334155 !important;
-  color: #ffffff !important;
+#noProductMessage {
+  text-align: center;
+  color: #666;
+  padding: 30px;
+  font-size: 0.95rem;
 }
 
 /* ==========================================
-   PERBAIKAN TOTAL DARK MODE (KARTU & TABEL)
+   STYLE TROLI SIDEBAR & TOMBOL MELAYANG
    ========================================== */
+
+#wishlist-sidebar {
+  position: fixed;
+  top: 0;
+  right: -350px; /* Sembunyi di luar layar secara default */
+  width: 320px;
+  height: 100%;
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  transition: right 0.3s ease;
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Class untuk membuka sidebar */
+#wishlist-sidebar.active {
+  right: 0;
+}
+
+/* Membuat area luar sidebar agak gelap saat troli terbuka */
+#wishlist-sidebar.active::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: -100vw;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Tombol Melayang Troli & Bandingkan */
+.wishlist-trigger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.wishlist-trigger:hover {
+  transform: scale(1.05);
+}
+
+.compare-trigger {
+  position: fixed;
+  bottom: 20px;
+  right: 140px; 
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
+}
+
+.compare-trigger:hover {
+  transform: scale(1.05);
+}
 
 /* ==========================================
-   PERBAIKAN TOTAL DARK MODE (KARTU & TABEL)
+   DARK MODE STATES
    ========================================== */
-
-/* 1. Latar Belakang Utama */
 body.dark-mode {
   background-color: #0f172a !important;
   color: #f8fafc !important;
 }
 
-/* 2. Kartu Produk & Container Tabel */
-body.dark-mode .product-card,
-body.dark-mode .card,
-body.dark-mode .pricelist-container,
+body.dark-mode .theme-toggle-btn {
+  background: #1e293b;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode p, 
+body.dark-mode .promo-body .specs {
+  color: #94a3b8 !important;
+}
+
 body.dark-mode .brand-section {
   background-color: #1e293b !important;
   border-color: #334155 !important;
   color: #ffffff !important;
 }
 
-/* 3. Latar Belakang Baris Tabel (Supaya Ikut Gelap) */
-body.dark-mode table,
-body.dark-mode tr,
-body.dark-mode td,
-body.dark-mode th,
-body.dark-mode tbody,
-body.dark-mode ul,
-body.dark-mode li {
-  background-color: #1e293b !important; /* Bikin background baris jadi gelap */
-  color: #f8fafc !important;            /* Teks tipe HP & harga jadi putih */
-  border-color: #334155 !important;      /* Garis pembatas tabel jadi gelap */
+body.dark-mode .price-table,
+body.dark-mode .price-table tr,
+body.dark-mode .price-table td,
+body.dark-mode .price-table th,
+body.dark-mode .price-table tbody {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
 }
 
-/* 4. Efek Selang-Seling Tabel (Zebra Striping Gelap) */
-body.dark-mode tr:nth-child(even),
-body.dark-mode li:nth-child(even) {
-  background-color: #0f172a !important; /* Warna gelap sedikit beda biar estetik */
+body.dark-mode .price-table th {
+  background-color: #0f172a !important;
+  color: #38bdf8 !important;
+}
+
+body.dark-mode .price-table tr:nth-child(even) {
+  background-color: #162032 !important;
+}
+
+body.dark-mode .price-table td:nth-child(2) {
+  color: #4ade80 !important;
+}
+
+body.dark-mode .search-box-wrapper input, 
+body.dark-mode .select-wrapper select {
+  background: #1e293b;
+  color: #fff;
+  border-color: #334155;
+}
+
+body.dark-mode #noProductMessage {
+  color: #94a3b8;
+}
+
+body.dark-mode #wishlist-sidebar {
+  background: #1e293b;
+  color: #f8fafc;
+}
+
+body.dark-mode .btn-wishlist {
+  background-color: #334155;
+  color: white;
+  border: none;
+}
+
+body.dark-mode .action-btn {
+  background: #334155;
+  color: #fff;
+  border-color: #475569;
+}
+
+/* Memperbaiki visibilitas teks tombol Salin / Wishlist di dalam card promo & tabel */
+.promo-card .btn-wishlist,
+.action-btn, 
+.price-table .action-btn {
+  color: #334155 !important;
+}
+
+body.dark-mode .promo-card .btn-wishlist,
+body.dark-mode .action-btn,
+body.dark-mode .price-table .action-btn {
+  color: #f8fafc !important;
+  background-color: #334155 !important;
+  border-color: #475569 !important;
+}
+
+/* ==========================================
+   WARNA & TAMPILAN HARGA DI DALAM TROLI
+   ========================================== */
+
+/* Warna teks harga produk di sidebar troli */
+#wishlist-items span[style*="color: #1b5e20"],
+#wishlist-items span {
+  color: #16a34a !important; /* Hijau cerah yang ramah di mata untuk mode terang */
+  font-weight: 700 !important;
+  font-size: 0.9rem !important;
+}
+
+/* Otomatis menyesuaikan jika halaman sedang dalam Dark Mode */
+body.dark-mode #wishlist-items span[style*="color"] {
+  color: #4ade80 !important; /* Hijau neon lembut agar kontras dan tetap nyaman dibaca saat gelap */
 }
