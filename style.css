@@ -556,3 +556,40 @@ body.dark-mode .price-table .action-btn {
 body.dark-mode #wishlist-items span[style*="color"] {
   color: #4ade80 !important; /* Hijau neon lembut agar kontras dan tetap nyaman dibaca saat gelap */
 }
+
+/* Styling default untuk layar besar / Desktop */
+.floating-nav {
+  position: fixed; 
+  top: 20px; 
+  right: 20px; 
+  z-index: 1000; 
+  display: flex; 
+  gap: 10px;
+}
+
+/* Pengaturan khusus untuk HP (layar dengan lebar maksimal 768px) */
+@media screen and (max-width: 768px) {
+  /* Pindahkan posisi tombol melayang ke bawah atau buat lebih compact agar tidak menutupi header */
+  .floating-nav {
+    position: fixed;
+    bottom: 20px;
+    top: auto;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90%;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.9);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+
+  /* Sesuaikan ukuran font atau padding card promo agar pas di layar HP */
+  .catalog {
+    padding: 10px;
+  }
+  
+  .header-title {
+    font-size: 1.5rem;
+  }
+}
