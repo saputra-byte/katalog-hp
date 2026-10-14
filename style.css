@@ -56,7 +56,7 @@ body {
   color: #64748b;
 }
 
-/* Filter Container Scrollable (Sudah Diperbaiki) */
+/* Filter Container Scrollable */
 .filter-container {
   display: flex;
   gap: 10px;
@@ -108,6 +108,7 @@ body {
 .filter-btn[onclick*="'vivo'"] { background: linear-gradient(135deg, #415fff, #1a237e) !important; }
 .filter-btn[onclick*="'xiaomi'"] { background: linear-gradient(135deg, #ff6900, #d45100) !important; }
 .filter-btn[onclick*="'itel'"] { background: linear-gradient(135deg, #ff0033, #a30021) !important; }
+.filter-btn[onclick*="'villaon'"] { background: linear-gradient(135deg, #7c3aed, #5b21b6) !important; }
 .filter-btn[onclick*="'honor'"] { background: linear-gradient(135deg, #00b4db, #0083b0) !important; }
 
 /* Layout Grid Katalog */
@@ -168,6 +169,7 @@ body {
 .vivo-bg     { background-color: #2563eb; }
 .xiaomi-bg   { background-color: #f97316; }
 .itel-bg     { background-color: #dc2626; }
+.villaon-bg  { background-color: #7c3aed; }
 .honor-bg    { background-color: #0284c7; }
 
 /* Tabel Harga */
