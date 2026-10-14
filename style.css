@@ -1,114 +1,202 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
 * { 
   box-sizing: border-box; 
   margin: 0; 
   padding: 0; 
-  font-family: Arial, sans-serif; 
+  font-family: 'Plus Jakarta Sans', sans-serif; 
 }
 
 body { 
-  background-color: #f4f4f9; 
-  padding: 15px; 
+  background-color: #f1f5f9; 
+  color: #0f172a;
+  padding: 20px; 
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-header { 
-  text-align: center; 
-  margin-bottom: 20px; 
+/* Header Profesional */
+.main-header {
+  text-align: center;
+  margin: 10px auto 30px auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+  border-radius: 16px;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid #e2e8f0;
 }
 
-header h1 { 
-  font-size: 1.5rem; 
-  color: #222; 
+.header-badge {
+  display: inline-block;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #dbeafe;
 }
 
-header p { 
-  font-size: 0.85rem; 
-  color: #666; 
-  margin-top: 5px; 
+.header-title {
+  font-weight: 800;
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, #0f172a 0%, #2563eb 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-/* Filter Container Scrollable */
+.main-header p {
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+/* Filter Container Scrollable (Sudah Diperbaiki) */
 .filter-container {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   overflow-x: auto;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-  padding-top: 10px;
+  padding: 10px 15px 15px 15px;
+  margin-bottom: 25px;
   scrollbar-width: thin;
+  justify-content: flex-start; 
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Layout Grid */
+/* Style Filter Brand Modern */
+.filter-btn {
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  color: #ffffff !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  outline: none;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.filter-btn.active {
+  transform: scale(1.06);
+  box-shadow: 0 0 0 3px #ffffff, 0 10px 25px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* Warna Gradien Tombol Brand */
+.filter-btn[onclick*="'all'"] { background: linear-gradient(135deg, #475569, #0f172a) !important; }
+.filter-btn[onclick*="'promo'"] { background: linear-gradient(135deg, #ff416c, #ff4b2b) !important; }
+.filter-btn[onclick*="'samsung'"] { background: linear-gradient(135deg, #1428a0, #0c1859) !important; }
+.filter-btn[onclick*="'realme'"] { background: linear-gradient(135deg, #ffd700, #d4af37) !important; color: #111111 !important; }
+.filter-btn[onclick*="'motorola'"] { background: linear-gradient(135deg, #00142e, #002e66) !important; }
+.filter-btn[onclick*="'nubia'"] { background: linear-gradient(135deg, #e60012, #99000c) !important; }
+.filter-btn[onclick*="'oppo'"] { background: linear-gradient(135deg, #048a81, #01544e) !important; }
+.filter-btn[onclick*="'infinix'"] { background: linear-gradient(135deg, #50c878, #2e7d32) !important; }
+.filter-btn[onclick*="'tecno'"] { background: linear-gradient(135deg, #0052cc, #002b80) !important; }
+.filter-btn[onclick*="'vivo'"] { background: linear-gradient(135deg, #415fff, #1a237e) !important; }
+.filter-btn[onclick*="'xiaomi'"] { background: linear-gradient(135deg, #ff6900, #d45100) !important; }
+.filter-btn[onclick*="'itel'"] { background: linear-gradient(135deg, #ff0033, #a30021) !important; }
+.filter-btn[onclick*="'honor'"] { background: linear-gradient(135deg, #00b4db, #0083b0) !important; }
+
+/* Layout Grid Katalog */
 .catalog {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
   align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .brand-section {
-  background: #fff;
-  border-radius: 8px;
+  background: #ffffff;
+  border-radius: 16px;
   width: 100%;
-  max-width: 350px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  max-width: 360px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
   overflow: hidden;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
   height: fit-content;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.brand-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .brand-header { 
-  padding: 10px; 
+  padding: 14px; 
   text-align: center; 
   color: white; 
 }
 
 .brand-header h2 { 
-  font-size: 1.1rem; 
-  letter-spacing: 1px; 
+  font-size: 1.15rem; 
+  letter-spacing: 1.2px; 
+  font-weight: 800;
 }
 
-/* Warna Sesuai Brosur Gambar */
-.samsung-bg  { background-color: #000000; }
-.realme-bg   { background-color: #fbc02d; color: #000; }
-.motorola-bg { background-color: #0d47a1; }
-.nubia-bg    { background-color: #f57c00; }
-.oppo-bg     { background-color: #00c853; }
-.infinix-bg  { background-color: #76ff03; color: #000; }
-.tecno-bg    { background-color: #0288d1; }
-.vivo-bg     { background-color: #0091ea; }
-.xiaomi-bg   { background-color: #ff6d00; }
-.itel-bg     { background-color: #d50000; }
-.honor-bg    { background-color: #0000ff; }
+/* Warna Header Brand */
+.samsung-bg  { background-color: #0f172a; }
+.realme-bg   { background-color: #eab308; color: #000; }
+.motorola-bg { background-color: #1d4ed8; }
+.nubia-bg    { background-color: #ea580c; }
+.oppo-bg     { background-color: #059669; }
+.infinix-bg  { background-color: #65a30d; color: #fff; }
+.tecno-bg    { background-color: #0284c7; }
+.vivo-bg     { background-color: #2563eb; }
+.xiaomi-bg   { background-color: #f97316; }
+.itel-bg     { background-color: #dc2626; }
+.honor-bg    { background-color: #0284c7; }
 
-/* Tabel */
+/* Tabel Harga */
 .price-table { 
   width: 100%; 
   border-collapse: collapse; 
-  margin: 10px 0; 
-  font-size: 0.85rem; 
+  margin: 12px 0; 
+  font-size: 0.88rem; 
 }
 
 .price-table th, .price-table td { 
-  padding: 6px 12px; 
+  padding: 10px 14px; 
   text-align: left; 
-  border-bottom: 1px solid #eee; 
+  border-bottom: 1px solid #f1f5f9; 
 }
 
 .price-table th { 
-  background: #f8f8f8; 
-  font-weight: bold; 
-  color: #333; 
+  background: #f8fafc; 
+  font-weight: 700; 
+  color: #475569; 
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .price-table td:nth-child(2) { 
-  font-weight: bold; 
+  font-weight: 700; 
   text-align: right; 
-  color: #1b5e20; 
+  color: #16a34a; 
 }
 
 .price-table th:last-child,
@@ -118,17 +206,21 @@ header p {
 
 /* Tombol Aksi di Tabel */
 .action-btn {
-  background: #f0f0f0;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 3px 6px;
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 5px 12px;
   cursor: pointer;
-  font-size: 0.75rem;
-  transition: background 0.2s;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
 }
 
 .action-btn:hover {
-  background: #e2e8f0;
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
 }
 
 /* Button WA */
@@ -136,26 +228,44 @@ header p {
   display: block;
   width: 90%;
   margin: 10px auto 0;
-  background-color: #25d366;
+  background-color: #16a34a;
   color: white;
   text-align: center;
-  padding: 8px;
+  padding: 11px;
   text-decoration: none;
-  border-radius: 5px;
-  font-weight: bold;
-  font-size: 0.85rem;
-  transition: background 0.2s;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+  transition: all 0.2s ease;
 }
 
 .btn-wa:hover {
-  background-color: #20ba5a;
+  background-color: #15803d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(22, 163, 74, 0.3);
 }
 
-/* Efek Tombol Promo Berkedip/Berdenyut */
+.btn-wa-secondary {
+  background-color: #0284c7;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+  margin-top: 8px;
+}
+
+.btn-wa-secondary:hover {
+  background-color: #0369a1;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+}
+
+/* Card Promo Bergambar */
+.promo-card {
+  position: relative;
+  border: 2px solid #ef4444;
+}
+
 .filter-btn.promo-btn {
-  background: #ff4757;
-  color: white;
-  animation: pulse 1.5s infinite;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b) !important;
+  animation: pulse 1.8s infinite;
 }
 
 @keyframes pulse {
@@ -164,167 +274,104 @@ header p {
   100% { transform: scale(1); }
 }
 
-/* Card Promo Bergambar */
-.promo-card {
-  position: relative;
-  border: 2px solid #ff4757;
-}
-
 .promo-badge {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #ff4757;
+  top: 14px;
+  right: 14px;
+  background-color: #ef4444;
   color: white;
   font-size: 0.75rem;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 4px;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 6px;
   z-index: 2;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
 }
 
 .promo-img {
   width: 100%;
-  height: 220px;
+  height: 230px;
   object-fit: contain !important;
   object-position: center top !important;
   background-color: #ffffff !important; 
-  padding: 10px 5px 0 5px;    
+  padding: 20px 10px 0 10px;    
   display: block;
 }
 
 .promo-body {
-  padding: 12px;
+  padding: 15px;
   text-align: center;
 }
 
 .promo-body .specs {
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 6px;
+  font-size: 0.88rem;
+  color: #64748b;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .price-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .old-price {
   text-decoration: line-through;
-  color: #888;
+  color: #94a3b8;
   font-size: 0.85rem;
 }
 
 .new-price {
-  color: #e53935;
-  font-weight: bold;
-  font-size: 1.1rem;
+  color: #dc2626;
+  font-weight: 800;
+  font-size: 1.2rem;
 }
 
 .discount-tag {
-  background-color: #ffebee;
-  color: #e53935;
+  background-color: #fef2f2;
+  color: #dc2626;
   font-size: 0.75rem;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 4px;
-  border: 1px solid #ffcdd2;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid #fecaca;
 }
-
-.btn-wa-secondary {
-  background-color: #0288d1;
-  margin-top: 5px;
-}
-
-.btn-wa-secondary:hover {
-  background-color: #01579b;
-}
-
-.header-title {
-  font-family: 'Plus Jakarta Sans', sans-serif !important;
-  font-weight: 800 !important;
-  font-size: 2.2rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  display: inline-block;
-  background: linear-gradient(135deg, #1e293b 0%, #3b82f6 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Style Filter Brand */
-.filter-btn {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  color: #ffffff !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  outline: none;
-  white-space: nowrap;
-}
-
-.filter-btn:hover {
-  transform: translateY(-3px) scale(1.05);
-}
-
-.filter-btn[onclick*="'all'"] { background: linear-gradient(135deg, #475569, #1e293b) !important; }
-.filter-btn[onclick*="'promo'"] { background: linear-gradient(135deg, #ff416c, #ff4b2b) !important; box-shadow: 0 4px 12px rgba(255, 65, 108, 0.4); }
-.filter-btn[onclick*="'samsung'"] { background: linear-gradient(135deg, #1428a0, #0c1859) !important; box-shadow: 0 4px 12px rgba(20, 40, 160, 0.3); }
-.filter-btn[onclick*="'realme'"] { background: linear-gradient(135deg, #ffc800, #e0a800) !important; color: #111111 !important; box-shadow: 0 4px 12px rgba(255, 200, 0, 0.3); }
-.filter-btn[onclick*="'motorola'"] { background: linear-gradient(135deg, #00142e, #002e66) !important; box-shadow: 0 4px 12px rgba(0, 46, 102, 0.3); }
-.filter-btn[onclick*="'nubia'"] { background: linear-gradient(135deg, #e60012, #99000c) !important; box-shadow: 0 4px 12px rgba(230, 0, 18, 0.3); }
-.filter-btn[onclick*="'oppo'"] { background: linear-gradient(135deg, #048a81, #01544e) !important; box-shadow: 0 4px 12px rgba(4, 138, 129, 0.3); }
-.filter-btn[onclick*="'infinix'"] { background: linear-gradient(135deg, #50c878, #2e7d32) !important; box-shadow: 0 4px 12px rgba(80, 200, 120, 0.3); }
-.filter-btn[onclick*="'tecno'"] { background: linear-gradient(135deg, #0052cc, #002b80) !important; box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3); }
-.filter-btn[onclick*="'vivo'"] { background: linear-gradient(135deg, #415fff, #1a237e) !important; box-shadow: 0 4px 12px rgba(65, 95, 255, 0.3); }
-.filter-btn[onclick*="'xiaomi'"] { background: linear-gradient(135deg, #ff6900, #d45100) !important; box-shadow: 0 4px 12px rgba(255, 105, 0, 0.3); }
-.filter-btn[onclick*="'itel'"] { background: linear-gradient(135deg, #ff0033, #a30021) !important; box-shadow: 0 4px 12px rgba(255, 0, 51, 0.3); }
-.filter-btn[onclick*="'honor'"] { background: linear-gradient(135deg, #00b4db, #0083b0) !important; box-shadow: 0 4px 12px rgba(0, 180, 219, 0.3); }
 
 /* Tombol Wishlist di Card Promo */
 .btn-wishlist {
   display: block;
   width: 90%;
   margin: 10px auto;
-  padding: 8px 15px;
-  background-color: #f1f5f9;
+  padding: 10px;
+  background-color: #f8fafc;
   color: #334155;
   border: 1px solid #cbd5e1;
-  border-radius: 6px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: 700;
-  font-size: 0.85rem;
-  transition: all 0.3s ease;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
   text-align: center;
 }
 
 .btn-wishlist:hover {
   background-color: #e2e8f0;
   transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Posisi Tombol Dark/Light Mode */
+/* Tombol Dark Mode */
 .theme-toggle-btn {
   position: fixed;
   top: 20px;
   left: 20px;
-  right: auto;
-  width: 45px;
-  height: 45px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  border: none;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   font-size: 1.3rem;
   display: flex;
@@ -332,59 +379,67 @@ header p {
   justify-content: center;
   z-index: 9999;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .theme-toggle-btn:hover {
   transform: scale(1.1) rotate(-15deg);
 }
 
-/* CSS UI Pencarian & Filter Harga */
+/* UI Pencarian & Filter Harga */
 .search-filter-container {
-  max-width: 800px;
-  margin: 0 auto 20px auto;
+  max-width: 900px;
+  margin: 0 auto 25px auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
   padding: 0 10px;
 }
 
 .search-box-wrapper {
   flex: 1;
-  min-width: 260px;
+  min-width: 280px;
 }
 
 .search-box-wrapper input, .select-wrapper select {
   width: 100%;
-  padding: 10px 16px;
-  border-radius: 25px;
-  border: 1px solid #ddd;
-  background: #fff;
-  color: #333;
-  font-size: 0.85rem;
+  padding: 13px 20px;
+  border-radius: 30px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  color: #334155;
+  font-size: 0.9rem;
   outline: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+}
+
+.search-box-wrapper input:focus, .select-wrapper select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
 #noProductMessage {
   text-align: center;
-  color: #666;
-  padding: 30px;
-  font-size: 0.95rem;
+  color: #64748b;
+  padding: 40px;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
-/* Style Troli Sidebar */
+/* Troli Sidebar */
 #wishlist-sidebar {
   position: fixed;
   top: 0;
-  right: -350px;
-  width: 320px;
+  right: -380px;
+  width: 350px;
   height: 100%;
-  background: #fff;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
-  transition: right 0.3s ease;
+  background: #ffffff;
+  box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 1000;
-  padding: 20px;
+  padding: 30px 22px;
   overflow-y: auto;
 }
 
@@ -399,7 +454,8 @@ header p {
   left: -100vw;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(5px);
   z-index: -1;
 }
 
@@ -408,37 +464,87 @@ header p {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .close-btn {
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
+  color: #64748b;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #ef4444;
 }
 
 /* Tombol Melayang Troli */
 .wishlist-trigger {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 25px;
+  right: 25px;
   z-index: 999;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.2s ease;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+  color: white; 
+  border: 1px solid rgba(255, 255, 255, 0.2); 
+  padding: 14px 26px; 
+  border-radius: 35px; 
+  cursor: pointer; 
+  font-weight: 700;
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .wishlist-trigger:hover {
-  transform: scale(1.05);
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.5);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 25px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  border-top: 1px solid #e2e8f0;
 }
 
 /* Dark Mode States */
 body.dark-mode {
-  background-color: #0f172a !important;
+  background-color: #0b0f19 !important;
   color: #f8fafc !important;
+}
+
+body.dark-mode .main-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-color: #334155;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .header-badge {
+  background: #1e3a8a;
+  color: #93c5fd;
+  border-color: #1d4ed8;
+}
+
+body.dark-mode .header-title {
+  background: linear-gradient(135deg, #f8fafc 0%, #38bdf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body.dark-mode footer {
+  border-color: #1e293b;
+  color: #64748b;
 }
 
 body.dark-mode .theme-toggle-btn {
   background: #1e293b;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
 }
 
 body.dark-mode p, 
@@ -491,6 +597,10 @@ body.dark-mode #wishlist-sidebar {
   color: #f8fafc;
 }
 
+body.dark-mode .sidebar-header {
+  border-color: #334155;
+}
+
 body.dark-mode .btn-wishlist {
   background-color: #334155 !important;
   color: #ffffff !important;
@@ -505,4 +615,9 @@ body.dark-mode .action-btn {
   background: #334155;
   color: #fff;
   border-color: #475569;
+}
+
+body.dark-mode .action-btn:hover {
+  background: #2563eb;
+  border-color: #2563eb;
 }

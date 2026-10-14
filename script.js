@@ -32,7 +32,7 @@ function fallbackCopy(text) {
 }
 
 // ==========================================
-// 1. EFEK FILTER BRAND (DIPERBAIKI)
+// 1. EFEK FILTER BRAND
 // ==========================================
 function filterBrand(brand, evt) {
   const buttons = document.querySelectorAll('.filter-btn');
@@ -164,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Tampilkan pesan kosong
+        // Tampilkan pesan kosong jika produk tidak ada
         if (noProductMessage) {
             noProductMessage.style.display = (totalVisibleItems === 0) ? "block" : "none";
         }
@@ -190,7 +190,7 @@ function addToWishlist(name, price) {
     let cleanPrice = parseInt(String(price).replace(/[^0-9]/g, ''), 10) || 0;
 
     if (wishlist.some(item => item.name === name)) {
-        alert(name + " sudah ada di dalam List Pilihan / troli!");
+        alert(name + " sudah ada di dalam Troli!");
         return;
     }
 
@@ -204,34 +204,36 @@ function addToWishlist(name, price) {
 function updateWishlistUI() {
     const container = document.getElementById('wishlist-items');
     const countElement = document.getElementById('wishlist-count');
+    const countSidebar = document.getElementById('wishlist-count-sidebar');
     const wishlist = JSON.parse(localStorage.getItem('focus_wishlist')) || [];
 
     if (countElement) countElement.textContent = `(${wishlist.length})`;
+    if (countSidebar) countSidebar.textContent = `(${wishlist.length})`;
 
     if (container) {
         container.innerHTML = '';
         if (wishlist.length === 0) {
-            container.innerHTML = '<p style="text-align:center; color:#888; font-size:0.85rem; padding:15px;">Troli masih kosong</p>';
+            container.innerHTML = '<p style="text-align:center; color:#888; font-size:0.88rem; padding:25px 0;">Troli kamu masih kosong</p>';
             return;
         }
 
         wishlist.forEach((item, index) => {
             const div = document.createElement('div');
-            div.style.padding = "10px";
-            div.style.borderBottom = "1px solid #ddd";
+            div.style.padding = "12px 6px";
+            div.style.borderBottom = "1px solid #e2e8f0";
             div.style.display = "flex";
             div.style.justifyContent = "space-between";
             div.style.alignItems = "center";
-            div.style.fontSize = "0.85rem";
+            div.style.fontSize = "0.88rem";
             
             let formattedPrice = Number(item.price).toLocaleString('id-ID');
 
             div.innerHTML = `
                 <div>
-                    <strong>${item.name}</strong><br>
-                    <span style="color: #1b5e20; font-weight: bold;">Rp ${formattedPrice}</span>
+                    <strong style="display:block; margin-bottom:3px;">${item.name}</strong>
+                    <span style="color: #16a34a; font-weight: bold;">Rp ${formattedPrice}</span>
                 </div>
-                <span style="color:red; cursor:pointer; font-weight:bold; padding: 4px 8px; font-size: 1.1rem;" onclick="removeFromWishlist(${index})" title="Hapus">&times;</span>
+                <span style="color:#ef4444; cursor:pointer; font-weight:bold; padding: 4px 8px; font-size: 1.2rem;" onclick="removeFromWishlist(${index})" title="Hapus">&times;</span>
             `;
             container.appendChild(div);
         });
@@ -252,13 +254,22 @@ function sendWishlistToWA() {
         return;
     }
 
-    let message = "Halo Admin, saya ingin menanyakan produk berikut:%0A";
+    let message = "Halo Admin *FOCUS CELL*, saya mau tanya/pesan produk berikut ya:%0A%0A";
+    let totalPrice = 0;
+
     wishlist.forEach((item, index) => {
         let formattedPrice = Number(item.price).toLocaleString('id-ID');
-        message += `${index + 1}. ${item.name} - Rp ${formattedPrice}%0A`;
+        message += `${index + 1}. *${item.name}*%0A   Harga: Rp ${formattedPrice}%0A`;
+        totalPrice += Number(item.price);
     });
 
-    const phone = "628xxxxxxxxxx"; // Ganti nomor WA tujuan di sini
+    let formattedTotal = totalPrice.toLocaleString('id-ID');
+    message += `%0A-----------------------------------%0A`;
+    message += `*Estimasi Total: Rp ${formattedTotal}*%0A%0A`;
+    message += `Mohon infonya untuk stok dan cara pemesanannya ya min. Terima kasih!`;
+
+    // Ganti nomor WA Admin tujuan di sini
+    const phone = "6283820415743"; 
     window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
 }
 
@@ -286,57 +297,5 @@ document.addEventListener('click', function(event) {
 
     if (isOpen && !sidebar.contains(event.target) && !wishlistBtn.contains(event.target)) {
         sidebar.classList.remove('active');
-    }
-});
-
-// ==========================================
-// 6. FITUR UNTUK FITUR BANDINGKAN (COMPARE)
-// ==========================================
-function updateCompareCount() {
-    const checkedBoxes = document.querySelectorAll('.compare-check:checked');
-    const compareCountEl = document.getElementById('compare-count');
-    if (compareCountEl) {
-        compareCountEl.innerText = `(${checkedBoxes.length})`;
-    }
-}
-
-function toggleCompare() {
-    const checkedBoxes = document.querySelectorAll('.compare-check:checked');
-    
-    if (checkedBoxes.length === 0) {
-        alert("Pilih minimal 1 atau 2 HP yang ingin dibandingkan dengan mencentang kotak di tabel terlebih dahulu!");
-        return;
-    }
-
-    if (checkedBoxes.length > 3) {
-        alert("Maksimal hanya dapat membandingkan 3 HP sekaligus!");
-        return;
-    }
-
-    let comparisonList = [];
-    checkedBoxes.forEach(cb => {
-        let row = cb.closest('tr');
-        let name = cb.value;
-        let price = row ? row.cells[2]?.innerText || "-" : "-";
-        
-        comparisonList.push({ name, price });
-    });
-
-    let message = "⚖️ PERBANDINGAN HP PILIHAN:\n\n";
-    comparisonList.forEach((item, index) => {
-        message += `${index + 1}. ${item.name}\n   Harga: ${item.price}\n\n`;
-    });
-    
-    alert(message);
-}
-
-document.addEventListener('change', function(e) {
-    if (e.target && e.target.classList.contains('compare-check')) {
-        const checkedBoxes = document.querySelectorAll('.compare-check:checked');
-        if (checkedBoxes.length > 3) {
-            alert("Maksimal pilih 3 HP untuk dibandingkan!");
-            e.target.checked = false;
-        }
-        updateCompareCount();
     }
 });
