@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Harga HP - FOCUS CELL</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <button id="theme-toggle" class="theme-toggle-btn" onclick="toggleTheme()" aria-label="Toggle Dark Mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <div class="floating-nav">
+    <button class="wishlist-trigger" onclick="toggleWishlist()">
+        🛒 Troli <span id="wishlist-count">(0)</span>
+    </button>
+  </div>
+
+  <header class="main-header">
+    <div class="header-badge">AUTHORIZED STORE PRICE LIST</div>
+    <h1 class="header-title">FOCUS CELL</h1>
+    <p>Katalog Resmi Pricelist Smartphone & Tablet Terupdate</p>
+  </header>
+
+  <div class="search-filter-container">
+    <div class="search-box-wrapper">
+      <input type="text" id="searchInput" placeholder="🔍 Cari nama HP atau Tipe (contoh: S26 Ultra, A07)...">
+    </div>
+
+    <div class="select-wrapper">
+      <select id="priceFilter">
+        <option value="all">Semua Harga</option>
+        <option value="under3">Di bawah Rp 3 Juta</option>
+        <option value="3to6">Rp 3 Juta - Rp 6 Juta</option>
+        <option value="above6">Di atas Rp 6 Juta</option>
+      </select>
+    </div>
+
+    <div class="select-wrapper">
+      <select id="sortOrder">
+        <option value="default">Urutkan: Default</option>
+        <option value="low-high">Harga: Termurah ke Termahal</option>
+        <option value="high-low">Harga: Termahal ke Termurah</option>
+      </select>
+    </div>
+  </div>
+
+  <div id="noProductMessage" style="display: none;">
+    HP yang kamu cari nggak ketemu, coba kata kunci lain! 😢
+  </div>
+
+  <div class="filter-container">
+    <button class="filter-btn active" onclick="filterBrand('all', event)">Semua Brand</button>
+    <button class="filter-btn promo-btn" onclick="filterBrand('promo', event)">🔥 PROMO SPESIAL</button>
+    <button class="filter-btn" onclick="filterBrand('samsung', event)">Samsung</button>
+    <button class="filter-btn" onclick="filterBrand('oppo', event)">Oppo</button>
+    <button class="filter-btn" onclick="filterBrand('vivo', event)">Vivo</button>
+    <button class="filter-btn" onclick="filterBrand('realme', event)">Realme</button>
+    <button class="filter-btn" onclick="filterBrand('infinix', event)">Infinix</button>
+    <button class="filter-btn" onclick="filterBrand('xiaomi', event)">Xiaomi</button>
+    <button class="filter-btn" onclick="filterBrand('motorola', event)">Motorola</button>
+    <button class="filter-btn" onclick="filterBrand('tecno', event)">Tecno</button>
+    <button class="filter-btn" onclick="filterBrand('itel', event)">Itel</button>
+    <button class="filter-btn" onclick="filterBrand('nubia', event)">Nubia</button>
+    <button class="filter-btn" onclick="filterBrand('villaon', event)">Villaon</button>
+    <button class="filter-btn" onclick="filterBrand('honor', event)">Honor</button>
+  </div>
+
+  <div id="wishlist-sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <h3 style="display: flex; align-items: center; gap: 8px;">🛒 Troli Pilihan <span id="wishlist-count-sidebar">(0)</span></h3>
+        <span class="close-btn" onclick="toggleWishlist()">&times;</span>
+    </div>
+    <div id="wishlist-items"></div>
+    <button class="btn-wa" onclick="sendWishlistToWA()">Kirim List ke WhatsApp</button>
+  </div>
+
+  <main class="catalog">
+
+    <!-- PROMO CARDS -->
+    <div class="brand-section promo-card" data-brand="promo" data-name="Realme 16 5G" data-price="5700000">
+      <div class="promo-badge">PROMO UTAMA</div>
+      <img src="c:\Users\LENOVO\OneDrive\Pictures\Pict Random\realme 16 5G.jpg" alt="Realme 16 5G" class="promo-img">
+      <div class="brand-header realme-bg"><h2>REALME 16 5G</h2></div>
+      <div class="promo-body">
+        <p class="specs">8GB RAM / 256GB ROM</p>
+        <div class="price-box">
+          <span class="old-price">Rp 6.000.000</span>
+          <span class="new-price">Rp 5.700.000</span>
+          <span class="discount-tag">-5%</span>
+        </div>
+      </div>
+      <button class="btn-wishlist" onclick="addToWishlist('Realme 16 5G', '5.700.000')">+ Masukkan Troli</button>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20saya%20mau%20ambil%20Promo%20Samsung%20S26%20Ultra" class="btn-wa" target="_blank">Ambil Promo WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20saya%20mau%20ambil%20Promo%20Samsung%20S26%20Ultra" class="btn-wa btn-wa-secondary" target="_blank">Ambil Promo WA Admin 2</a>
+    </div>
+
+    <div class="brand-section promo-card" data-brand="promo" data-name="Oppo a7 Pro 5G" data-price="7500000">
+      <div class="promo-badge">DISKON SPESIAL</div>
+      <img src="c:\Users\LENOVO\OneDrive\Pictures\Pict Random\oppo A7 Pro 5G.jpg" alt="oppo A7 Pro 5G" class="promo-img">
+      <div class="brand-header oppo-bg"><h2>OPPO A7 PRO 5G</h2></div>
+      <div class="promo-body">
+        <p class="specs">6GB RAM / 256GB ROM</p>
+        <div class="price-box">
+          <span class="old-price">Rp 7.700.000</span>
+          <span class="new-price">Rp 7.500.000</span>
+        </div>
+      </div>
+      <button class="btn-wishlist" onclick="addToWishlist('Oppo A7 Pro 5G', '7.500.000')">+ Masukkan Troli</button>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20saya%20mau%20ambil%20Promo%20Realme%2016%20PRO%2B" class="btn-wa" target="_blank">Ambil Promo WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20saya%20mau%20ambil%20Promo%20Realme%2016%20PRO%2B" class="btn-wa btn-wa-secondary" target="_blank">Ambil Promo WA Admin 2</a>
+    </div>
+
+    <div class="brand-section promo-card" data-brand="promo" data-name="Oppo Reno 16 5G" data-price="8500000">
+      <div class="promo-badge">BEST DEAL</div>
+      <img src="Image/oppo-reno-16-5G.jpg" alt="Oppo Reno 16F 5G" class="promo-img">
+      <div class="brand-header oppo-bg"><h2>OPPO RENO 16F 5G</h2></div>
+      <div class="promo-body">
+        <p class="specs">8GB RAM / 256GB ROM</p>
+        <div class="price-box">
+          <span class="old-price">Rp 8.700.000</span>
+          <span class="new-price">Rp 8.500.000</span>
+        </div>
+      </div>
+      <button class="btn-wishlist" onclick="addToWishlist('Oppo Reno 16F 5G', '8.500.000')">+ Masukkan Troli</button>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20saya%20mau%20ambil%20Promo%20Oppo%20Reno%2016" class="btn-wa" target="_blank">Ambil Promo WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20saya%20mau%20ambil%20Promo%20Oppo%20Reno%2016" class="btn-wa btn-wa-secondary" target="_blank">Ambil Promo WA Admin 2</a>
+    </div>
+
+    <!-- SAMSUNG -->
+    <div class="brand-section" data-brand="samsung">
+      <div class="brand-header samsung-bg"><h2>SAMSUNG</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="A07 4/64" data-item-price="2599000"><td>A07 4/64</td><td>Rp 2.599.000</td><td><button class="action-btn" onclick="addToWishlist('A07 4/64', '2.599.000')">+</button></td></tr>
+        <tr data-item-name="A07 4/128" data-item-price="3199000"><td>A07 4/128</td><td>Rp 3.199.000</td><td><button class="action-btn" onclick="addToWishlist('A07 4/128', '3.199.000')">+</button></td></tr>
+        <tr data-item-name="A08 4/64" data-item-price="2999000"><td>A08 4/64</td><td>Rp 2.999.000</td><td><button class="action-btn" onclick="addToWishlist('A08 4/64', '2.999.000')">+</button></td></tr>
+        <tr data-item-name="A08 4/128" data-item-price="3599000"><td>A08 4/128</td><td>Rp 3.599.000</td><td><button class="action-btn" onclick="addToWishlist('A08 4/128', '3.599.000')">+</button></td></tr>
+        <tr data-item-name="A17 4G 8/128" data-item-price="4599000"><td>A17 4G 8/128</td><td>Rp 4.599.000</td><td><button class="action-btn" onclick="addToWishlist('A17 4G 8/128', '4.599.000')">+</button></td></tr>
+        <tr data-item-name="A17 4G 8/256" data-item-price="4999000"><td>A17 4G 8/256</td><td>Rp 4.999.000</td><td><button class="action-btn" onclick="addToWishlist('A17 4G 8/256', '4.999.000')">+</button></td></tr>
+        <tr data-item-name="A27 5G 6/128" data-item-price="5599000"><td>A27 5G 6/128</td><td>Rp 5.599.000</td><td><button class="action-btn" onclick="addToWishlist('A27 5G 6/128', '5.599.000')">+</button></td></tr>
+        <tr data-item-name="A27 5G 8/256" data-item-price="6999000"><td>A27 5G 8/256</td><td>Rp 6.999.000</td><td><button class="action-btn" onclick="addToWishlist('A27 5G 8/256', '6.999.000')">+</button></td></tr>
+        <tr data-item-name="A37 5G 8/256" data-item-price="7299000"><td>A37 5G 8/256</td><td>Rp 7.299.000</td><td><button class="action-btn" onclick="addToWishlist('A37 5G 8/256', '7.299.000')">+</button></td></tr>
+        <tr data-item-name="A57 5G 8/256" data-item-price="8999000"><td>A57 5G 8/256</td><td>Rp 8.999.000</td><td><button class="action-btn" onclick="addToWishlist('A57 5G 8/256', '8.999.000')">+</button></td></tr>
+        <tr data-item-name="A57 5G 12/256" data-item-price="9999000"><td>A57 5G 12/256</td><td>Rp 9.999.000</td><td><button class="action-btn" onclick="addToWishlist('A57 5G 12/256', '9.999.000')">+</button></td></tr>
+        <tr data-item-name="S25 FE 5G 8/256" data-item-price="11999000"><td>S25 FE 5G 8/256</td><td>Rp 11.999.000</td><td><button class="action-btn" onclick="addToWishlist('S25 FE 5G 8/256', '11.999.000')">+</button></td></tr>
+        <tr data-item-name="S26 FE 5G 8/128" data-item-price="11999000"><td>S26 FE 5G 8/128</td><td>Rp 11.999.000</td><td><button class="action-btn" onclick="addToWishlist('S26 FE 5G 8/128', '11.999.000')">+</button></td></tr>
+        <tr data-item-name="S26 FE 5G 8/256" data-item-price="13999000"><td>S26 FE 5G 8/256</td><td>Rp 13.999.000</td><td><button class="action-btn" onclick="addToWishlist('S26 FE 5G 8/256', '13.999.000')">+</button></td></tr>
+        <tr data-item-name="S26 FE 5G 8/512" data-item-price="11999000"><td>S26 FE 5G 8/512</td><td>Rp 17.999.000</td><td><button class="action-btn" onclick="addToWishlist('S26 FE 5G 8/512', '17.999.000')">+</button></td></tr>
+        <tr data-item-name="S26 5G 12/256" data-item-price="16499000"><td>S26 5G 12/256</td><td>Rp 16.499.000</td><td><button class="action-btn" onclick="addToWishlist('S26 5G 12/256', '16.499.000')">+</button></td></tr>
+        <tr data-item-name="S26 PLUS 5G 12/256" data-item-price="19499000"><td>S26 PLUS 5G 12/256</td><td>Rp 19.499.000</td><td><button class="action-btn" onclick="addToWishlist('S26 PLUS 5G 12/256', '19.499.000')">+</button></td></tr>
+        <tr data-item-name="S26 ULTRA 12/256" data-item-price="24499000"><td>S26 ULTRA 12/256</td><td>Rp 24.499.000</td><td><button class="action-btn" onclick="addToWishlist('S26 ULTRA 12/256', '24.499.000')">+</button></td></tr>
+        <tr data-item-name="Tab A11 WIFI 4/64" data-item-price="2699000"><td>Tab A11 WIFI 4/64</td><td>Rp 2.699.000</td><td><button class="action-btn" onclick="addToWishlist('Tab A11 WIFI 4/64', '2.699.000')">+</button></td></tr>
+        <tr data-item-name="Tab A11 LTE 4/64" data-item-price="3499000"><td>Tab A11 LTE 4/64</td><td>Rp 3.499.000</td><td><button class="action-btn" onclick="addToWishlist('Tab A11 LTE 4/64', '3.499.000')">+</button></td></tr>
+        <tr data-item-name="Tab A11+ WIFI 6/128" data-item-price="4499000"><td>Tab A11+ WIFI 6/128</td><td>Rp 4.499.000</td><td><button class="action-btn" onclick="addToWishlist('Tab A11+ WIFI 6/128', '4.499.000')">+</button></td></tr>
+        <tr data-item-name="Tab A11+ 5G 6/128" data-item-price="5999000"><td>Tab A11+ 5G 6/128</td><td>Rp 5.999.000</td><td><button class="action-btn" onclick="addToWishlist('Tab A11+ 5G 6/128', '5.999.000')">+</button></td></tr>
+        <tr data-item-name="Tab S10 Lite 5G 6/128" data-item-price="7999000"><td>Tab S10 Lite 5G 6/128</td><td>Rp 7.999.000</td><td><button class="action-btn" onclick="addToWishlist('Tab S10 Lite 5G 6/128', '7.999.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Samsung" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Samsung" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- OPPO -->
+    <div class="brand-section" data-brand="oppo">
+      <div class="brand-header oppo-bg"><h2>OPPO</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="A6c 4/64" data-item-price="2699000"><td>A6c 4/64</td><td>Rp 2.699.000</td><td><button class="action-btn" onclick="addToWishlist('A6c 4/64', '2.699.000')">+</button></td></tr>
+        <tr data-item-name="A6c 4/128" data-item-price="3099000"><td>A6c 4/128</td><td>Rp 3.099.000</td><td><button class="action-btn" onclick="addToWishlist('A6c 4/128', '3.099.000')">+</button></td></tr>
+        <tr data-item-name="A6 6/128" data-item-price="3999000"><td>A6 6/128</td><td>Rp 3.999.000</td><td><button class="action-btn" onclick="addToWishlist('A6 6/128', '3.999.000')">+</button></td></tr>
+        <tr data-item-name="A6 6/256" data-item-price="4799000"><td>A6 6/256</td><td>Rp 4.799.000</td><td><button class="action-btn" onclick="addToWishlist('A6 6/256', '4.799.000')">+</button></td></tr>
+        <tr data-item-name="A7 Pro 6/256" data-item-price="7700000"><td>A7 Pro 6/256</td><td>Rp 7.700.000</td><td><button class="action-btn" onclick="addToWishlist('A7 Pro 6/256', '7.700.000')">+</button></td></tr>
+        <tr data-item-name="RENO 16F 8/128" data-item-price="7999000"><td>RENO 16F 8/128</td><td>Rp 7.999.000</td><td><button class="action-btn" onclick="addToWishlist('RENO 16F 8/128', '7.999.000')">+</button></td></tr>
+        <tr data-item-name="RENO 16F 8/256" data-item-price="8699000"><td>RENO 16F 8/256</td><td>Rp 8.699.000</td><td><button class="action-btn" onclick="addToWishlist('RENO 16F 8/256', '8.699.000')">+</button></td></tr>
+        <tr data-item-name="RENO 16 5G 8/256" data-item-price="11999000"><td>RENO 16 5G 8/256</td><td>Rp 11.999.000</td><td><button class="action-btn" onclick="addToWishlist('RENO 16 5G 8/256', '11.999.000')">+</button></td></tr>
+        <tr data-item-name="RENO 16 5G 12/256" data-item-price="12999000"><td>RENO 16 5G 12/256</td><td>Rp 12.999.000</td><td><button class="action-btn" onclick="addToWishlist('RENO 16 5G 12/256', '12.999.000')">+</button></td></tr>
+        <tr data-item-name="RENO 16 PRO 12/256" data-item-price="15999000"><td>RENO 16 PRO 12/256</td><td>Rp 15.999.000</td><td><button class="action-btn" onclick="addToWishlist('RENO 16 PRO 12/256', '15.999.000')">+</button></td></tr>
+        <tr data-item-name="FIND X9s 12/512" data-item-price="17499000"><td>FIND X9s 12/512</td><td>Rp 17.499.000</td><td><button class="action-btn" onclick="addToWishlist('FIND X9s 12/512', '17.499.000')">+</button></td></tr>
+        <tr data-item-name="FIND X9 ULTRA 16/512" data-item-price="28999000"><td>FIND X9 ULTRA 16/512</td><td>Rp 28.999.000</td><td><button class="action-btn" onclick="addToWishlist('FIND X9 ULTRA 16/512', '28.999.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Oppo" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Oppo" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- VIVO -->
+    <div class="brand-section" data-brand="vivo">
+      <div class="brand-header vivo-bg"><h2>VIVO</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="Y05e 4/64" data-item-price="2299000"><td>Y05e 4/64</td><td>Rp 2.299.000</td><td><button class="action-btn" onclick="addToWishlist('Y05e 4/64', '2.299.000')">+</button></td></tr>
+        <tr data-item-name="Y05 4/64" data-item-price="2649000"><td>Y05 4/64</td><td>Rp 2.649.000</td><td><button class="action-btn" onclick="addToWishlist('Y05 4/64', '2.649.000')">+</button></td></tr>
+        <tr data-item-name="Y05 4/128" data-item-price="2999000"><td>Y05 4/128</td><td>Rp 2.999.000</td><td><button class="action-btn" onclick="addToWishlist('Y05 4/128', '2.999.000')">+</button></td></tr>
+        <tr data-item-name="Y11d 4/64" data-item-price="2799000"><td>Y11d 4/64</td><td>Rp 2.799.000</td><td><button class="action-btn" onclick="addToWishlist('Y11d 4/64', '2.799.000')">+</button></td></tr>
+        <tr data-item-name="Y11d 4/128" data-item-price="3299000"><td>Y11d 4/128</td><td>Rp 3.299.000</td><td><button class="action-btn" onclick="addToWishlist('Y11d 4/128', '3.299.000')">+</button></td></tr>
+        <tr data-item-name="Y11d 6/128" data-item-price="3799000"><td>Y11d 6/128</td><td>Rp 3.799.000</td><td><button class="action-btn" onclick="addToWishlist('Y11d 6/128', '3.799.000')">+</button></td></tr>
+        <tr data-item-name="Y31d PRO 6/128" data-item-price="4299000"><td>Y31d PRO 6/128</td><td>Rp 4.299.000</td><td><button class="action-btn" onclick="addToWishlist('Y31d PRO 6/128', '4.299.000')">+</button></td></tr>
+        <tr data-item-name="Y31d PRO 8/128" data-item-price="4899000"><td>Y31d PRO 8/128</td><td>Rp 4.899.000</td><td><button class="action-btn" onclick="addToWishlist('Y31d PRO 8/128', '4.899.000')">+</button></td></tr>
+        <tr data-item-name="Y31d PRO 8/256" data-item-price="5499000"><td>Y31d PRO 8/256</td><td>Rp 5.499.000</td><td><button class="action-btn" onclick="addToWishlist('Y31d PRO 8/256', '5.499.000')">+</button></td></tr>
+        <tr data-item-name="Y500 6/128" data-item-price="5499000"><td>Y500 6/128</td><td>Rp 5.499.000</td><td><button class="action-btn" onclick="addToWishlist('Y500 6/128', '5.499.000')">+</button></td></tr>
+        <tr data-item-name="Y500 6/256" data-item-price="6299000"><td>Y500 6/256</td><td>Rp 6.299.000</td><td><button class="action-btn" onclick="addToWishlist('Y500 6/256', '6.299.000')">+</button></td></tr>
+        <tr data-item-name="V60 Lite 4G 8/256" data-item-price="5899000"><td>V60 Lite 4G 8/256</td><td>Rp 5.899.000</td><td><button class="action-btn" onclick="addToWishlist('V60 Lite 4G 8/256', '5.899.000')">+</button></td></tr>
+        <tr data-item-name="V70 FE 12/256" data-item-price="7999000"><td>V70 FE 12/256</td><td>Rp 7.999.000</td><td><button class="action-btn" onclick="addToWishlist('V70 FE 12/256', '7.999.000')">+</button></td></tr>
+        <tr data-item-name="V70 5G 8/256" data-item-price="9999000"><td>V70 5G 8/256</td><td>Rp 9.999.000</td><td><button class="action-btn" onclick="addToWishlist('V70 5G 8/256', '9.999.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Vivo" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Vivo" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- REALME -->
+    <div class="brand-section" data-brand="realme">
+      <div class="brand-header realme-bg"><h2>REALME</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="Note 80 4/64" data-item-price="2099000"><td>Note 80 4/64</td><td>Rp 2.099.000</td><td><button class="action-btn" onclick="addToWishlist('Note 80 4/64', '2.099.000')">+</button></td></tr>
+        <tr data-item-name="Note 80 4/128" data-item-price="2399000"><td>Note 80 4/128</td><td>Rp 2.399.000</td><td><button class="action-btn" onclick="addToWishlist('Note 80 4/128', '2.399.000')">+</button></td></tr>
+        <tr data-item-name="C100i 4/128" data-item-price="2899000"><td>C100i 4/128</td><td>Rp 2.899.000</td><td><button class="action-btn" onclick="addToWishlist('C100i 4/128', '2.899.000')">+</button></td></tr>
+        <tr data-item-name="C100i 4/256" data-item-price="3199000"><td>C100i 4/256</td><td>Rp 3.199.000</td><td><button class="action-btn" onclick="addToWishlist('C100i 4/256', '3.199.000')">+</button></td></tr>
+        <tr data-item-name="C100i 6/128" data-item-price="3299000"><td>C100i 6/128</td><td>Rp 3.299.000</td><td><button class="action-btn" onclick="addToWishlist('C100i 6/128', '3.299.000')">+</button></td></tr>
+        <tr data-item-name="C100x 6/128" data-item-price="3399000"><td>C100x 6/128</td><td>Rp 3.399.000</td><td><button class="action-btn" onclick="addToWishlist('C100x 6/128', '3.399.000')">+</button></td></tr>
+        <tr data-item-name="C100x 6/256" data-item-price="3799000"><td>C100x 6/256</td><td>Rp 3.799.000</td><td><button class="action-btn" onclick="addToWishlist('C100x 6/256', '3.799.000')">+</button></td></tr>
+        <tr data-item-name="C100 6/128" data-item-price="3999000"><td>C100 6/128</td><td>Rp 3.999.000</td><td><button class="action-btn" onclick="addToWishlist('C100 6/128', '3.999.000')">+</button></td></tr>
+        <tr data-item-name="C100 8/256" data-item-price="4599000"><td>C100 8/256</td><td>Rp 4.599.000</td><td><button class="action-btn" onclick="addToWishlist('C100 8/256', '4.599.000')">+</button></td></tr>
+        <tr data-item-name="R 16 5G 12/256" data-item-price="5999000"><td>R 16 5G 12/256</td><td>Rp 5.999.000</td><td><button class="action-btn" onclick="addToWishlist('R 16 5G 12/256', '5.999.000')">+</button></td></tr>
+        <tr data-item-name="R 16 PRO 5G 12/256" data-item-price="6999000"><td>R 16 PRO 5G 12/256</td><td>Rp 6.999.000</td><td><button class="action-btn" onclick="addToWishlist('R 16 PRO 5G 12/256', '6.999.000')">+</button></td></tr>
+        <tr data-item-name="R 16 PRO+ 5G 12/512" data-item-price="8999000"><td>R 16 PRO+ 5G 12/512</td><td>Rp 8.999.000</td><td><button class="action-btn" onclick="addToWishlist('R 16 PRO+ 5G 12/512', '8.999.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Realme" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Realme" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- INFINIX -->
+    <div class="brand-section" data-brand="infinix">
+      <div class="brand-header infinix-bg"><h2>INFINIX</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="SMART 20 4/64" data-item-price="2099000"><td>SMART 20 4/64</td><td>Rp 2.099.000</td><td><button class="action-btn" onclick="addToWishlist('SMART 20 4/64', '2.099.000')">+</button></td></tr>
+        <tr data-item-name="SMART 20 4/128" data-item-price="2399000"><td>SMART 20 4/128</td><td>Rp 2.399.000</td><td><button class="action-btn" onclick="addToWishlist('SMART 20 4/128', '2.399.000')">+</button></td></tr>
+        <tr data-item-name="HOT 70 4/128" data-item-price="2799000"><td>HOT 70 4/128</td><td>Rp 2.799.000</td><td><button class="action-btn" onclick="addToWishlist('HOT 70 4/128', '2.799.000')">+</button></td></tr>
+        <tr data-item-name="HOT 70 6/128" data-item-price="3199000"><td>HOT 70 6/128</td><td>Rp 3.199.000</td><td><button class="action-btn" onclick="addToWishlist('HOT 70 6/128', '3.199.000')">+</button></td></tr>
+        <tr data-item-name="HOT 70 8/128" data-item-price="3399000"><td>HOT 70 8/128</td><td>Rp 3.399.000</td><td><button class="action-btn" onclick="addToWishlist('HOT 70 8/128', '3.399.000')">+</button></td></tr>
+        <tr data-item-name="HOT 70 6/256" data-item-price="3599000"><td>HOT 70 6/256</td><td>Rp 3.599.000</td><td><button class="action-btn" onclick="addToWishlist('HOT 70 6/256', '3.599.000')">+</button></td></tr>
+        <tr data-item-name="NOTE EDGE 5G 8/128" data-item-price="4199000"><td>NOTE EDGE 5G 8/128</td><td>Rp 4.199.000</td><td><button class="action-btn" onclick="addToWishlist('NOTE EDGE 5G 8/128', '4.199.000')">+</button></td></tr>
+        <tr data-item-name="NOTE EDGE 5G 8/256" data-item-price="4399000"><td>NOTE EDGE 5G 8/256</td><td>Rp 4.399.000</td><td><button class="action-btn" onclick="addToWishlist('NOTE EDGE 5G 8/256', '4.399.000')">+</button></td></tr>
+        <tr data-item-name="NOTE 60 8/256" data-item-price="4999000"><td>NOTE 60 8/256</td><td>Rp 4.999.000</td><td><button class="action-btn" onclick="addToWishlist('NOTE 60 8/256', '4.999.000')">+</button></td></tr>
+        <tr data-item-name="NOTE 60 PRO 8/256" data-item-price="5999000"><td>NOTE 60 PRO 8/256</td><td>Rp 5.999.000</td><td><button class="action-btn" onclick="addToWishlist('NOTE 60 PRO 8/256', '5.999.000')">+</button></td></tr>
+        <tr data-item-name="NOTE 60 PRO 12/256" data-item-price="6999000"><td>NOTE 60 PRO 12/256</td><td>Rp 6.999.000</td><td><button class="action-btn" onclick="addToWishlist('NOTE 60 PRO 12/256', '6.999.000')">+</button></td></tr>
+        <tr data-item-name="NOTE 60 ULTRA 12/512" data-item-price="11999000"><td>NOTE 60 ULTRA 12/512</td><td>Rp 11.999.000</td><td><button class="action-btn" onclick="addToWishlist('NOTE 60 ULTRA 12/512', '11.999.000')">+</button></td></tr>
+        <tr data-item-name="GT 50 PRO 12/256" data-item-price="6999000"><td>GT 50 PRO 12/256</td><td>Rp 6.999.000</td><td><button class="action-btn" onclick="addToWishlist('GT 50 PRO 12/256', '6.999.000')">+</button></td></tr>
+        <tr data-item-name="GT 50 PRO 12/512" data-item-price="7999000"><td>GT 50 PRO 12/512</td><td>Rp 7.999.000</td><td><button class="action-btn" onclick="addToWishlist('GT 50 PRO 12/512', '7.999.000')">+</button></td></tr>
+        <tr data-item-name="XPAD 30E 4/128" data-item-price="2699000"><td>XPAD 30E 4/128</td><td>Rp 2.699.000</td><td><button class="action-btn" onclick="addToWishlist('XPAD 30E 4/128', '2.699.000')">+</button></td></tr>
+        <tr data-item-name="XPAD 30E 8/256" data-item-price="3699000"><td>XPAD 30E 8/256</td><td>Rp 3.699.000</td><td><button class="action-btn" onclick="addToWishlist('XPAD 30E 8/256', '3.699.000')">+</button></td></tr>
+        <tr data-item-name="XPAD EDGE 8/256" data-item-price="4599000"><td>XPAD EDGE 8/256</td><td>Rp 4.599.000</td><td><button class="action-btn" onclick="addToWishlist('XPAD EDGE 8/256', '4.599.000')">+</button></td></tr>
+        <tr data-item-name="XPAD 30 PRO 4G 4/128" data-item-price="3499000"><td>XPAD 30 PRO 4G 4/128</td><td>Rp 3.499.000</td><td><button class="action-btn" onclick="addToWishlist('XPAD 30 PRO 4G 4/128', '3.499.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Infinix" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Infinix" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- XIAOMI -->
+    <div class="brand-section" data-brand="xiaomi">
+      <div class="brand-header xiaomi-bg"><h2>XIAOMI</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="A7 PRO 4/64" data-item-price="1999000"><td>A7 PRO 4/64</td><td>Rp 1.999.000</td><td><button class="action-btn" onclick="addToWishlist('A7 PRO 4/64', '1.999.000')">+</button></td></tr>
+        <tr data-item-name="A7 PRO 4/128" data-item-price="2199000"><td>A7 PRO 4/128</td><td>Rp 2.199.000</td><td><button class="action-btn" onclick="addToWishlist('A7 PRO 4/128', '2.199.000')">+</button></td></tr>
+        <tr data-item-name="R17 4/128" data-item-price="2899000"><td>R17 4/128</td><td>Rp 2.899.000</td><td><button class="action-btn" onclick="addToWishlist('R17 4/128', '2.899.000')">+</button></td></tr>
+        <tr data-item-name="R17 6/128" data-item-price="3299000"><td>R17 6/128</td><td>Rp 3.299.000</td><td><button class="action-btn" onclick="addToWishlist('R17 6/128', '3.299.000')">+</button></td></tr>
+        <tr data-item-name="R17 6/256" data-item-price="3849000"><td>R17 6/256</td><td>Rp 3.849.000</td><td><button class="action-btn" onclick="addToWishlist('R17 6/256', '3.849.000')">+</button></td></tr>
+        <tr data-item-name="N 17 4G 6/128" data-item-price="3999000"><td>N 17 4G 6/128</td><td>Rp 3.999.000</td><td><button class="action-btn" onclick="addToWishlist('N 17 4G 6/128', '3.999.000')">+</button></td></tr>
+        <tr data-item-name="N 17 4G 6/256" data-item-price="4299000"><td>N 17 4G 6/256</td><td>Rp 4.299.000</td><td><button class="action-btn" onclick="addToWishlist('N 17 4G 6/256', '4.299.000')">+</button></td></tr>
+        <tr data-item-name="N 17 5G 6/128" data-item-price="4599000"><td>N 17 5G 6/128</td><td>Rp 4.599.000</td><td><button class="action-btn" onclick="addToWishlist('N 17 5G 6/128', '4.599.000')">+</button></td></tr>
+        <tr data-item-name="N 17 5G 8/256" data-item-price="5199000"><td>N 17 5G 8/256</td><td>Rp 5.199.000</td><td><button class="action-btn" onclick="addToWishlist('N 17 5G 8/256', '5.199.000')">+</button></td></tr>
+        <tr data-item-name="N 17 Pro 8/256" data-item-price="5999000"><td>N 17 Pro 8/256</td><td>Rp 5.999.000</td><td><button class="action-btn" onclick="addToWishlist('N 17 Pro 8/256', '5.999.000')">+</button></td></tr>
+        <tr data-item-name="N 17 Pro 8/512" data-item-price="6999000"><td>N 17 Pro 8/512</td><td>Rp 6.999.000</td><td><button class="action-btn" onclick="addToWishlist('N 17 Pro 8/512', '6.999.000')">+</button></td></tr>
+        <tr data-item-name="N 17 ProMax 8/256" data-item-price="7499000"><td>N 17 ProMax 8/256</td><td>Rp 7.499.000</td><td><button class="action-btn" onclick="addToWishlist('N 17 ProMax 8/256', '7.499.000')">+</button></td></tr>
+        <tr data-item-name="N 17 ProMax 8/512" data-item-price="8499000"><td>N 17 ProMax 8/512</td><td>Rp 8.499.000</td><td><button class="action-btn" onclick="addToWishlist('N 17 ProMax 8/512', '8.499.000')">+</button></td></tr>
+        <tr data-item-name="Mi 17T 12/512" data-item-price="9999000"><td>Mi 17T 12/512</td><td>Rp 9.999.000</td><td><button class="action-btn" onclick="addToWishlist('Mi 17T 12/512', '9.999.000')">+</button></td></tr>
+        <tr data-item-name="Mi 17T PRO 12/512" data-item-price="12999000"><td>Mi 17T PRO 12/512</td><td>Rp 12.999.000</td><td><button class="action-btn" onclick="addToWishlist('Mi 17T PRO 12/512', '12.999.000')">+</button></td></tr>
+        <tr data-item-name="Mi 17 12/512" data-item-price="15999000"><td>Mi 17 12/512</td><td>Rp 15.999.000</td><td><button class="action-btn" onclick="addToWishlist('Mi 17 12/512', '15.999.000')">+</button></td></tr>
+        <tr data-item-name="PAD 2 9.7 4/64 WIFI" data-item-price="2649000"><td>PAD 2 9.7 4/64 WIFI</td><td>Rp 2.649.000</td><td><button class="action-btn" onclick="addToWishlist('PAD 2 9.7 4/64 WIFI', '2.649.000')">+</button></td></tr>
+        <tr data-item-name="PAD 2 4/256 4G" data-item-price="3999000"><td>PAD 2 4/256 4G</td><td>Rp 3.999.000</td><td><button class="action-btn" onclick="addToWishlist('PAD 2 4/256 4G', '3.999.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Xiaomi" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Xiaomi" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- MOTOROLA -->
+    <div class="brand-section" data-brand="motorola">
+      <div class="brand-header motorola-bg"><h2>MOTOROLA</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="G06 POWER 4/64" data-item-price="2900000"><td>G06 POWER 4/64</td><td>Rp 2.900.000</td><td><button class="action-btn" onclick="addToWishlist('G06 POWER 4/64', '2.900.000')">+</button></td></tr>
+        <tr data-item-name="G06 POWER 8/128" data-item-price="3099000"><td>G06 POWER 8/128</td><td>Rp 3.099.000</td><td><button class="action-btn" onclick="addToWishlist('G06 POWER 8/128', '3.099.000')">+</button></td></tr>
+        <tr data-item-name="G57 POWER 5G 8/128" data-item-price="3699000"><td>G57 POWER 5G 8/128</td><td>Rp 3.699.000</td><td><button class="action-btn" onclick="addToWishlist('G57 POWER 5G 8/128', '3.699.000')">+</button></td></tr>
+        <tr data-item-name="G57 POWER 5G 8/256" data-item-price="3999000"><td>G57 POWER 5G 8/256</td><td>Rp 3.999.000</td><td><button class="action-btn" onclick="addToWishlist('G57 POWER 5G 8/256', '3.999.000')">+</button></td></tr>
+        <tr data-item-name="G67 POWER 5G 8/256" data-item-price="4399000"><td>G67 POWER 5G 8/256</td><td>Rp 4.399.000</td><td><button class="action-btn" onclick="addToWishlist('G67 POWER 5G 8/256', '4.399.000')">+</button></td></tr>
+        <tr data-item-name="G86 POWER 5G 8/256" data-item-price="4999000"><td>G86 POWER 5G 8/256</td><td>Rp 4.999.000</td><td><button class="action-btn" onclick="addToWishlist('G86 POWER 5G 8/256', '4.999.000')">+</button></td></tr>
+        <tr data-item-name="EDGE 60 FUSION 12/256" data-item-price="5499000"><td>EDGE 60 FUSION 12/256</td><td>Rp 5.499.000</td><td><button class="action-btn" onclick="addToWishlist('EDGE 60 FUSION 12/256', '5.499.000')">+</button></td></tr>
+        <tr data-item-name="EDGE 60 PRO 12/256" data-item-price="8299000"><td>EDGE 60 PRO 12/256</td><td>Rp 8.299.000</td><td><button class="action-btn" onclick="addToWishlist('EDGE 60 PRO 12/256', '8.299.000')">+</button></td></tr>
+        <tr data-item-name="EDGE 70 FUSION 8/256" data-item-price="7999000"><td>EDGE 70 FUSION 8/256</td><td>Rp 7.999.000</td><td><button class="action-btn" onclick="addToWishlist('EDGE 70 FUSION 8/256', '7.999.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Motorola" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Motorola" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- TECNO -->
+    <div class="brand-section" data-brand="tecno">
+      <div class="brand-header tecno-bg"><h2>TECNO</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="SPARK GO 3 4/64" data-item-price="1999000"><td>SPARK GO 3 4/64</td><td>Rp 1.999.000</td><td><button class="action-btn" onclick="addToWishlist('SPARK GO 3 4/64', '1.999.000')">+</button></td></tr>
+        <tr data-item-name="SPARK GO 3 4/128" data-item-price="2199000"><td>SPARK GO 3 4/128</td><td>Rp 2.199.000</td><td><button class="action-btn" onclick="addToWishlist('SPARK GO 3 4/128', '2.199.000')">+</button></td></tr>
+        <tr data-item-name="SPARK 50 4/128" data-item-price="2599000"><td>SPARK 50 4/128</td><td>Rp 2.599.000</td><td><button class="action-btn" onclick="addToWishlist('SPARK 50 4/128', '2.599.000')">+</button></td></tr>
+        <tr data-item-name="SPARK 50 6/128" data-item-price="2999000"><td>SPARK 50 6/128</td><td>Rp 2.999.000</td><td><button class="action-btn" onclick="addToWishlist('SPARK 50 6/128', '2.999.000')">+</button></td></tr>
+        <tr data-item-name="SPARK 50 8/128" data-item-price="3399000"><td>SPARK 50 8/128</td><td>Rp 3.399.000</td><td><button class="action-btn" onclick="addToWishlist('SPARK 50 8/128', '3.399.000')">+</button></td></tr>
+        <tr data-item-name="POVA 8 5G 6/128" data-item-price="4299000"><td>POVA 8 5G 6/128</td><td>Rp 4.299.000</td><td><button class="action-btn" onclick="addToWishlist('POVA 8 5G 6/128', '4.299.000')">+</button></td></tr>
+        <tr data-item-name="POVA 8 5G 8/128" data-item-price="4999000"><td>POVA 8 5G 8/128</td><td>Rp 4.999.000</td><td><button class="action-btn" onclick="addToWishlist('POVA 8 5G 8/128', '4.999.000')">+</button></td></tr>
+        <tr data-item-name="POVA 8 5G 8/256" data-item-price="5599000"><td>POVA 8 5G 8/256</td><td>Rp 5.599.000</td><td><button class="action-btn" onclick="addToWishlist('POVA 8 5G 8/256', '5.599.000')">+</button></td></tr>
+        <tr data-item-name="POVA 8 Pro 5G 8/256" data-item-price="5999000"><td>POVA 8 Pro 5G 8/256</td><td>Rp 5.999.000</td><td><button class="action-btn" onclick="addToWishlist('POVA 8 Pro 5G 8/256', '5.999.000')">+</button></td></tr>
+        <tr data-item-name="CAMON 50 8/128" data-item-price="3999000"><td>CAMON 50 8/128</td><td>Rp 3.999.000</td><td><button class="action-btn" onclick="addToWishlist('CAMON 50 8/128', '3.999.000')">+</button></td></tr>
+        <tr data-item-name="CAMON 50 8/256" data-item-price="4599000"><td>CAMON 50 8/256</td><td>Rp 4.599.000</td><td><button class="action-btn" onclick="addToWishlist('CAMON 50 8/256', '4.599.000')">+</button></td></tr>
+        <tr data-item-name="CAMON 50 12/256" data-item-price="4799000"><td>CAMON 50 12/256</td><td>Rp 4.799.000</td><td><button class="action-btn" onclick="addToWishlist('CAMON 50 12/256', '4.799.000')">+</button></td></tr>
+        <tr data-item-name="CAMON 50 PRO 8/256" data-item-price="5799000"><td>CAMON 50 PRO 8/256</td><td>Rp 5.799.000</td><td><button class="action-btn" onclick="addToWishlist('CAMON 50 PRO 8/256', '5.799.000')">+</button></td></tr>
+        <tr data-item-name="CAMON 50 PRO 12/256" data-item-price="6499000"><td>CAMON 50 PRO 12/256</td><td>Rp 6.499.000</td><td><button class="action-btn" onclick="addToWishlist('CAMON 50 PRO 12/256', '6.499.000')">+</button></td></tr>
+        <tr data-item-name="CAMON 50 PRO 12/512" data-item-price="7299000"><td>CAMON 50 PRO 12/512</td><td>Rp 7.299.000</td><td><button class="action-btn" onclick="addToWishlist('CAMON 50 PRO 12/512', '7.299.000')">+</button></td></tr>
+        <tr data-item-name="MEGAPAD SE 4/128" data-item-price="3399000"><td>MEGAPAD SE 4/128</td><td>Rp 3.399.000</td><td><button class="action-btn" onclick="addToWishlist('MEGAPAD SE 4/128', '3.399.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Tecno" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Tecno" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- ITEL -->
+    <div class="brand-section" data-brand="itel">
+      <div class="brand-header itel-bg"><h2>ITEL</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="A100C 3/32" data-item-price="1400000"><td>A100C 3/32</td><td>Rp 1.400.000</td><td><button class="action-btn" onclick="addToWishlist('A100C 3/32', '1.400.000')">+</button></td></tr>
+        <tr data-item-name="A100cs 3/64" data-item-price="1699000"><td>A100cs 3/64</td><td>Rp 1.699.000</td><td><button class="action-btn" onclick="addToWishlist('A100cs 3/64', '1.699.000')">+</button></td></tr>
+        <tr data-item-name="S26 ULTRA 8/128" data-item-price="2799000"><td>S26 ULTRA 8/128</td><td>Rp 2.799.000</td><td><button class="action-btn" onclick="addToWishlist('S26 ULTRA 8/128', '2.799.000')">+</button></td></tr>
+        <tr data-item-name="S26 ULTRA 8/256" data-item-price="2999000"><td>S26 ULTRA 8/256</td><td>Rp 2.999.000</td><td><button class="action-btn" onclick="addToWishlist('S26 ULTRA 8/256', '2.999.000')">+</button></td></tr>
+        <tr data-item-name="TAB 11 4/128" data-item-price="2299000"><td>TAB 11 4/128</td><td>Rp 2.299.000</td><td><button class="action-btn" onclick="addToWishlist('TAB 11 4/128', '2.299.000')">+</button></td></tr>
+        <tr data-item-name="TAB 30 GT 4/128" data-item-price="2399000"><td>TAB 30 GT 4/128</td><td>Rp 2.399.000</td><td><button class="action-btn" onclick="addToWishlist('TAB 30 GT 4/128', '2.399.000')">+</button></td></tr>
+        <tr data-item-name="TAB 30s 4/128" data-item-price="2399000"><td>TAB 30s 4/128</td><td>Rp 2.399.000</td><td><button class="action-btn" onclick="addToWishlist('TAB 30s 4/128', '2.399.000')">+</button></td></tr>
+        <tr data-item-name="TAB 30 PRO 8/256" data-item-price="3299000"><td>TAB 30 PRO 8/256</td><td>Rp 3.299.000</td><td><button class="action-btn" onclick="addToWishlist('TAB 30 PRO 8/256', '3.299.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Itel" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Itel" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- NUBIA -->
+    <div class="brand-section" data-brand="nubia">
+      <div class="brand-header nubia-bg"><h2>NUBIA</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="NEO 05 5G 8/256" data-item-price="3999000"><td>NEO 05 5G 8/256</td><td>Rp 3.999.000</td><td><button class="action-btn" onclick="addToWishlist('NEO 05 5G 8/256', '3.999.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Nubia" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Nubia" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- VILLAON -->
+    <div class="brand-section" data-brand="villaon">
+      <div class="brand-header villaon-bg" style="background-color: #7c3aed;"><h2>VILLAON</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="VILLAON V50s 3/32" data-item-price="1400000"><td>V50s 3/32</td><td>Rp 1.400.000</td><td><button class="action-btn" onclick="addToWishlist('VILLAON V50s 3/32', '1.400.000')">+</button></td></tr>
+        <tr data-item-name="VILLAON V50s 4/64" data-item-price="1700000"><td>V50s 4/64</td><td>Rp 1.700.000</td><td><button class="action-btn" onclick="addToWishlist('VILLAON V50s 4/64', '1.700.000')">+</button></td></tr>
+        <tr data-item-name="VILLAON H100 6/128" data-item-price="2000000"><td>H100 6/128</td><td>Rp 2.000.000</td><td><button class="action-btn" onclick="addToWishlist('VILLAON H100 6/128', '2.000.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Villaon" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Villaon" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+    <!-- HONOR -->
+    <div class="brand-section" data-brand="honor">
+      <div class="brand-header honor-bg"><h2>HONOR</h2></div>
+      <table class="price-table">
+        <tr><th>Tipe / Seri</th><th>Harga</th><th>Aksi</th></tr>
+        <tr data-item-name="X5C PLUS 4/128" data-item-price="2299000"><td>X5C PLUS 4/128</td><td>Rp 2.299.000</td><td><button class="action-btn" onclick="addToWishlist('X5C PLUS 4/128', '2.299.000')">+</button></td></tr>
+        <tr data-item-name="X6C 6/256" data-item-price="2999000"><td>X6C 6/256</td><td>Rp 2.999.000</td><td><button class="action-btn" onclick="addToWishlist('X6C 6/256', '2.999.000')">+</button></td></tr>
+        <tr data-item-name="X7D 4G 8/512" data-item-price="4499000"><td>X7D 4G 8/512</td><td>Rp 4.499.000</td><td><button class="action-btn" onclick="addToWishlist('X7D 4G 8/512', '4.499.000')">+</button></td></tr>
+        <tr data-item-name="X8B 4/128" data-item-price="2999000"><td>X8B 4/128</td><td>Rp 2.999.000</td><td><button class="action-btn" onclick="addToWishlist('X8B 4/128', '2.999.000')">+</button></td></tr>
+        <tr data-item-name="PAD 10 8/256" data-item-price="5699000"><td>PAD 10 8/256</td><td>Rp 5.699.000</td><td><button class="action-btn" onclick="addToWishlist('PAD 10 8/256', '5.699.000')">+</button></td></tr>
+        <tr data-item-name="PAD X9A8 8/128" data-item-price="4299000"><td>PAD X9A8 8/128</td><td>Rp 4.299.000</td><td><button class="action-btn" onclick="addToWishlist('PAD X9A8 8/128', '4.299.000')">+</button></td></tr>
+      </table>
+      <a href="https://wa.me/6283820415743?text=Halo%20min,%20mau%20tanya%20stok%20Honor" class="btn-wa" target="_blank">Chat WA Admin 1</a>
+      <a href="https://wa.me/6285113641801?text=Halo%20min,%20mau%20tanya%20stok%20Honor" class="btn-wa btn-wa-secondary" target="_blank">Chat WA Admin 2</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 FOCUS CELL. All Rights Reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
